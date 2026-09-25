@@ -9,6 +9,7 @@
  */
 
 $picks = audira_catalog_picks();
+$more  = audira_more_products();
 ?>
 <!-- wp:group {"tagName":"section","className":"aud-section aud-picks","layout":{"type":"constrained"}} -->
 <section id="picks" class="wp-block-group aud-section aud-picks"><!-- wp:group {"align":"wide","className":"aud-section-head aud-section-head--split","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
@@ -36,7 +37,7 @@ foreach ( $picks as $i => $p ) :
 	?>
 <!-- wp:group {"tagName":"article","className":"<?php echo esc_attr( $cls ); ?>"} -->
 <article class="wp-block-group <?php echo esc_attr( $cls ); ?>"><!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"aud-pick__img"} -->
-<figure class="wp-block-image size-full aud-pick__img"><a href="<?php echo esc_url( audira_amazon_product_url( $p['asin'] ) ); ?>" target="_blank" rel="sponsored nofollow noopener"><img src="<?php echo audira_img( $p['image'] ); ?>" alt="<?php echo esc_attr( $p['title'] ); ?>"/></a></figure>
+<figure class="wp-block-image size-full aud-pick__img"><a href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener"><img src="<?php echo audira_product_image( $p ); ?>" alt="<?php echo esc_attr( $p['title'] ); ?>"/></a></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"className":"aud-pick__body"} -->
@@ -66,7 +67,7 @@ foreach ( $picks as $i => $p ) :
 
 <!-- wp:buttons {"className":"aud-pick__actions"} -->
 <div class="wp-block-buttons aud-pick__actions"><!-- wp:button {"className":"<?php echo esc_attr( $btn ); ?>"} -->
-<div class="wp-block-button <?php echo esc_attr( $btn ); ?>"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( audira_amazon_product_url( $p['asin'] ) ); ?>" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon</a></div>
+<div class="wp-block-button <?php echo esc_attr( $btn ); ?>"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -78,6 +79,30 @@ foreach ( $picks as $i => $p ) :
 <?php endforeach; ?>
 </div>
 <!-- /wp:group -->
+
+<?php if ( $more ) : ?>
+<!-- wp:heading {"level":3,"align":"wide","className":"aud-more__title"} -->
+<h3 class="wp-block-heading alignwide aud-more__title">More products we recommend</h3>
+<!-- /wp:heading -->
+
+<!-- wp:group {"align":"wide","className":"aud-more-grid"} -->
+<div class="wp-block-group alignwide aud-more-grid">
+<?php foreach ( $more as $m ) : ?>
+<!-- wp:group {"className":"aud-more"} -->
+<div class="wp-block-group aud-more"><!-- wp:paragraph {"className":"aud-more__name"} -->
+<p class="aud-more__name"><?php echo esc_html( $m['title'] ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"aud-btn aud-btn--outline aud-btn--sm"} -->
+<div class="wp-block-button aud-btn aud-btn--outline aud-btn--sm"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( $m['url'] ); ?>" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+<?php endforeach; ?>
+</div>
+<!-- /wp:group -->
+<?php endif; ?>
 
 <!-- wp:buttons {"className":"aud-center-actions"} -->
 <div class="wp-block-buttons aud-center-actions"><!-- wp:button {"className":"aud-btn aud-btn--ghost"} -->

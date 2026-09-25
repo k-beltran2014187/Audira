@@ -3,10 +3,9 @@
  * Site content in one place: products, ASINs, comparison table and FAQ.
  *
  * HOW TO ADD YOUR PRODUCTS
- * 1. Open the product on amazon.com and copy its ASIN (10 characters,
- *    shown under "Product information", or in the URL after /dp/).
- * 2. Replace the matching 'B0XXXXXXXX' placeholder below.
- * 3. Update the title and bullets so they describe that exact product.
+ * The easy way: Settings → Audira Affiliate → Products. Values saved there
+ * override the defaults below. 'url' accepts any Amazon link, including
+ * SiteStripe short links (https://amzn.to/…).
  *
  * Amazon's Operating Agreement does not allow hard-coded prices or star
  * ratings copied from Amazon, so buttons say "Check price on Amazon".
@@ -21,9 +20,14 @@ defined( 'ABSPATH' ) || exit;
  * Editor's picks (the main money section).
  */
 function audira_catalog_picks() {
+	return audira_apply_saved_products( 'picks', audira_catalog_picks_defaults() );
+}
+
+function audira_catalog_picks_defaults() {
 	return array(
 		array(
 			'asin'     => 'B0XXXXXXX1',
+			'url'      => 'https://amzn.to/3ToY1tW',
 			'badge'    => 'Best overall',
 			'title'    => 'Rechargeable OTC Hearing Aids with Charging Case',
 			'image'    => 'pick-rechargeable.svg',
@@ -38,6 +42,7 @@ function audira_catalog_picks() {
 		),
 		array(
 			'asin'     => 'B0XXXXXXX2',
+			'url'      => 'https://amzn.to/4rGlJ1p',
 			'badge'    => 'Best earbud style',
 			'title'    => 'Earbud-Style OTC Hearing Aids',
 			'image'    => 'pick-earbud.svg',
@@ -52,6 +57,7 @@ function audira_catalog_picks() {
 		),
 		array(
 			'asin'     => 'B0XXXXXXX3',
+			'url'      => 'https://amzn.to/4juku38',
 			'badge'    => 'Most discreet',
 			'title'    => 'Invisible-in-Canal Hearing Aids',
 			'image'    => 'pick-invisible.svg',
@@ -66,6 +72,7 @@ function audira_catalog_picks() {
 		),
 		array(
 			'asin'     => 'B0XXXXXXX4',
+			'url'      => 'https://amzn.to/4heXm7z',
 			'badge'    => 'Best on a budget',
 			'title'    => 'Behind-the-Ear Personal Sound Amplifier',
 			'image'    => 'pick-amplifier.svg',
@@ -80,6 +87,7 @@ function audira_catalog_picks() {
 		),
 		array(
 			'asin'     => 'B0XXXXXXX5',
+			'url'      => 'https://amzn.to/4xKo8cG',
 			'badge'    => 'Top accessory',
 			'title'    => 'Electronic Dryer & Cleaning Kit',
 			'image'    => 'pick-care.svg',
@@ -99,9 +107,14 @@ function audira_catalog_picks() {
  * Hearing aid styles (expandable cards with quantity buttons).
  */
 function audira_catalog_styles() {
+	return audira_apply_saved_products( 'styles', audira_catalog_styles_defaults() );
+}
+
+function audira_catalog_styles_defaults() {
 	return array(
 		array(
 			'asin'     => 'B0XXXXXBTE',
+			'url'      => 'https://amzn.to/47jgds3',
 			'tag'      => 'BTE · Behind-the-Ear',
 			'title'    => 'Behind-the-Ear',
 			'image'    => 'type-bte.svg',
@@ -112,6 +125,7 @@ function audira_catalog_styles() {
 		),
 		array(
 			'asin'     => 'B0XXXXXRIC',
+			'url'      => 'https://amzn.to/4xMLoa7',
 			'tag'      => 'RIC · Receiver-in-Canal',
 			'title'    => 'Receiver-in-Canal',
 			'image'    => 'type-ric.svg',
@@ -122,6 +136,7 @@ function audira_catalog_styles() {
 		),
 		array(
 			'asin'     => 'B0XXXXXITE',
+			'url'      => 'https://amzn.to/4yYtVMW',
 			'tag'      => 'ITE · ITC · In-the-Ear',
 			'title'    => 'In-the-Ear',
 			'image'    => 'type-ite.svg',
@@ -132,6 +147,7 @@ function audira_catalog_styles() {
 		),
 		array(
 			'asin'     => 'B0XXXXXIIC',
+			'url'      => 'https://amzn.to/4z1s5ek',
 			'tag'      => 'IIC · CIC · Invisible',
 			'title'    => 'Invisible-in-Canal',
 			'image'    => 'type-iic.svg',
@@ -140,6 +156,25 @@ function audira_catalog_styles() {
 			'features' => array( 'Practically invisible', 'Featherlight', 'Less wind noise', 'Uses your ear\'s natural acoustics' ),
 			'ideal'    => 'mild to moderate hearing loss when appearance is the top priority.',
 		),
+	);
+}
+
+/**
+ * Default "More products we recommend" list (Settings → Audira Affiliate).
+ * Format per line: Product name | Amazon link. Link-only lines stay hidden.
+ */
+function audira_catalog_more_default() {
+	return implode(
+		"\n",
+		array(
+		'https://amzn.to/4yc7e7V',
+		'https://amzn.to/4yfIQ5n',
+		'https://amzn.to/4yhwRV6',
+		'https://amzn.to/4j84hAT',
+		'https://amzn.to/4yz7kqF',
+		'https://amzn.to/4d1QMPd',
+		'https://amzn.to/4Azqn5c',
+		)
 	);
 }
 

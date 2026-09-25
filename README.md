@@ -28,7 +28,11 @@ Sitio de afiliados de Amazon.com sobre audífonos para adultos mayores, en ingl�
 4. **Settings → Audira Affiliate**: pega tu Tracking ID de Amazon Associates (termina en `-20`) y guarda.
 5. **Settings → Permalinks** → *Post name* → *Save*.
 6. **Settings → Privacy** → crea y publica tu *Privacy Policy*.
-7. **Tus productos:** abre **Tools → Theme File Editor → audira → inc/catalog.php** (o el Administrador de archivos de Hostinger) y cambia cada `B0XXXXXXXX` por el ASIN real del producto (está en la URL de Amazon después de `/dp/`). Ajusta títulos y viñetas para que describan ese producto.
+7. **Tus productos:** ve a **Settings → Audira Affiliate** y baja hasta **Products**. Tus 16 enlaces ya vienen cargados:
+   - **Editor's top picks (5):** para cada uno revisa el *Amazon link*, escribe el **nombre real del producto**, sus ventajas (una por línea) y tu puntuación. Si quieres, pon una foto con *Choose image*.
+   - **Hearing aid styles (4):** un enlace por estilo (BTE, RIC, ITE, invisible).
+   - **More products we recommend:** una línea por producto con el formato `Nombre del producto | enlace`. Las líneas que solo tienen el enlace se guardan pero **no se muestran** hasta que les pongas el nombre.
+   - Pulsa **Guardar cambios** y los cambios salen en la portada al instante.
 8. **Site title:** Settings → General → *Site Title* (el logo y el pie usan este nombre).
 9. Activa SSL en hPanel (*Seguridad → SSL*) si aún no está activo.
 

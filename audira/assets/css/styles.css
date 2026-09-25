@@ -1201,3 +1201,33 @@ img { max-width: 100%; height: auto; }
 	.aud-qty .wp-block-button { width: 100%; }
 	.aud-qty .wp-block-button__link { width: 100%; }
 }
+
+
+/* ==========================================================================
+   21. More products we recommend (Settings → Audira Affiliate)
+   ========================================================================== */
+.aud-more__title { margin: clamp(3rem, 6vw, 4.5rem) auto 1.5rem !important; font-size: 1.625rem; }
+.aud-more-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+.aud-more {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin: 0 !important;
+	padding: 1.1rem 1.25rem;
+	border-radius: var(--aud-radius-sm);
+	background: var(--aud-white);
+	border: 1px solid var(--aud-line);
+	transition: border-color .3s var(--aud-ease), box-shadow .3s var(--aud-ease);
+}
+.aud-more:hover { border-color: transparent; box-shadow: var(--aud-shadow-sm); }
+.aud-more > * { margin: 0 !important; }
+.aud-more__name { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.aud-more .wp-block-buttons { flex: none; }
+
+@media (max-width: 1024px) { .aud-more-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .aud-more-grid { grid-template-columns: 1fr; } }

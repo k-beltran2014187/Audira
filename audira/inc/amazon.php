@@ -208,10 +208,9 @@ function audira_settings_page() {
 					</td>
 				</tr>
 			</table>
+			<?php audira_products_settings_section(); ?>
 			<?php submit_button(); ?>
 		</form>
-		<h2><?php esc_html_e( 'Products', 'audira' ); ?></h2>
-		<p><?php echo wp_kses_post( __( 'Product names, ASINs and descriptions live in <code>wp-content/themes/audira/inc/catalog.php</code>. Replace each <code>B0XXXXXXXX</code> placeholder with the real ASIN from the Amazon product page.', 'audira' ) ); ?></p>
 	</div>
 	<?php
 }

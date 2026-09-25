@@ -28,7 +28,7 @@ Sitio de afiliados de Amazon.com sobre audífonos para adultos mayores, en ingl�
 4. **Settings → Audira Affiliate**: pega tu Tracking ID de Amazon Associates (termina en `-20`) y guarda.
 5. **Settings → Permalinks** → *Post name* → *Save*.
 6. **Settings → Privacy** → crea y publica tu *Privacy Policy*.
-7. **Tus productos:** ve a **Settings → Audira Affiliate** y baja hasta **Products**. Tus 16 enlaces ya vienen cargados:
+7. **Tus productos:** ya vienen cargados con nombres y descripciones (5 Top Picks + 6 productos extra). Para cambiarlos ve a **Settings → Audira Affiliate** → **Products**. Si guardaste productos antes, pulsa **Restore the theme’s recommended products**:
    - **Editor's top picks (5):** para cada uno revisa el *Amazon link*, escribe el **nombre real del producto**, sus ventajas (una por línea) y tu puntuación. Si quieres, pon una foto con *Choose image*.
    - **Hearing aid styles (4):** un enlace por estilo (BTE, RIC, ITE, invisible).
    - **More products we recommend:** una línea por producto con el formato `Nombre del producto | enlace`. Las líneas que solo tienen el enlace se guardan pero **no se muestran** hasta que les pongas el nombre.

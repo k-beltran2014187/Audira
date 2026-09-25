@@ -7,6 +7,8 @@
  *
  * @package Audira
  */
+
+$top = audira_catalog_picks()[0];
 ?>
 <!-- wp:group {"tagName":"section","className":"aud-hero","layout":{"type":"constrained"}} -->
 <section id="top" class="wp-block-group aud-hero"><!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"aud-hero__grid"} -->
@@ -59,11 +61,11 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"aud-float__title"} -->
-<p class="aud-float__title">Rechargeable RIC</p>
+<p class="aud-float__title"><?php echo esc_html( $top['title'] ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"aud-float__score"} -->
-<p class="aud-float__score"><strong>9.6</strong> Audira score</p>
+<p class="aud-float__score"><strong><?php echo esc_html( $top['score'] ); ?></strong> Audira score</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

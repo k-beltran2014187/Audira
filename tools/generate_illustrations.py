@@ -201,6 +201,13 @@ files["pick-amplifier.svg"] = svg(W, H, "sand",
 files["pick-care.svg"] = svg(W, H, "mist",
     shadow(380, 520, 240) + dryer(360, 330, .95) + brush(620, 330, -24, 1.1), rc=(400, 300))
 
+files["pick-ric-silver.svg"] = svg(W, H, "mist",
+    shadow(410, 505, 180) + ric_device(470, 150, 1.55, "silver", rot=8), rc=(410, 300))
+files["pick-ric-graphite.svg"] = svg(W, H, "sand",
+    shadow(410, 505, 180) + ric_device(470, 150, 1.55, "graph", rot=8), rc=(410, 300))
+files["pick-ric-pair.svg"] = svg(W, H, "sage",
+    shadow(400, 510, 240) + ric_device(300, 160, 1.2, "champ", rot=-6) + ric_device(600, 160, 1.2, "champ", rot=6, flip=True), rc=(400, 300))
+
 # -------- hero (1000x1100) --------
 hero_body = (
     '<circle cx="520" cy="560" r="330" fill="#FBF8F3" opacity=".75"/>'

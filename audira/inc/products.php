@@ -220,6 +220,9 @@ function audira_products_settings_section() {
 	$more   = isset( $saved['more'] ) ? $saved['more'] : audira_catalog_more_default();
 	?>
 	<h2><?php esc_html_e( 'Products', 'audira' ); ?></h2>
+	<?php if ( ! empty( $saved ) ) : ?>
+		<p><a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=audira_reset_products' ), 'audira_reset_products' ) ); ?>" onclick="return confirm('<?php echo esc_js( __( 'Replace your saved products with the theme’s recommended list?', 'audira' ) ); ?>');"><?php esc_html_e( 'Restore the theme’s recommended products', 'audira' ); ?></a></p>
+	<?php endif; ?>
 	<p><?php esc_html_e( 'Paste the Amazon link of each product (a full amazon.com link or a SiteStripe short link like https://amzn.to/…) and type the product name as it should appear on your site. Changes show on the home page as soon as you save.', 'audira' ); ?></p>
 
 	<h3><?php esc_html_e( 'Editor’s top picks', 'audira' ); ?></h3>
@@ -255,3 +258,17 @@ function audira_products_settings_section() {
 	</div>
 	<?php
 }
+
+/**
+ * "Restore the theme's recommended products" button.
+ */
+function audira_reset_products() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'audira' ) );
+	}
+	check_admin_referer( 'audira_reset_products' );
+	delete_option( 'audira_products' );
+	wp_safe_redirect( admin_url( 'options-general.php?page=audira-affiliate&settings-updated=true' ) );
+	exit;
+}
+add_action( 'admin_post_audira_reset_products', 'audira_reset_products' );

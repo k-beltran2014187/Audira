@@ -78,7 +78,7 @@ $qty_options = array( 1, 2, 3 );
 <?php else : ?>
 <!-- wp:buttons {"className":"aud-qty"} -->
 <div class="wp-block-buttons aud-qty"><!-- wp:button {"className":"aud-btn aud-btn--amazon"} -->
-<div class="wp-block-button aud-btn aud-btn--amazon"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener">See it on Amazon</a></div>
+<div class="wp-block-button aud-btn aud-btn--amazon"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener"><?php echo false !== strpos( audira_product_url( $p ), '/s?' ) ? 'Shop this style on Amazon' : 'See it on Amazon'; ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 

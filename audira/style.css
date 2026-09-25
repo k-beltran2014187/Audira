@@ -1,0 +1,17 @@
+/*
+Theme Name: Audira
+Theme URI: https://choicebrook.com/
+Author: Audira
+Description: Premium block theme (Full Site Editing) for a U.S. Amazon Associates site about hearing aids, OTC hearing aids and hearing-assistive devices for older adults. Ships with a ready-to-edit landing page, editor's picks with one-click "add to Amazon cart" buttons, a hearing-aid style guide, comparison table, FAQ with schema markup, legal pages and an Affiliate settings screen.
+Requires at least: 6.5
+Tested up to: 6.9
+Requires PHP: 7.4
+Version: 2.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: audira
+Tags: full-site-editing, block-patterns, block-styles, custom-colors, wide-blocks, one-column, accessibility-ready, e-commerce
+*/
+
+/* This file only contains the theme header.
+   All styles live in assets/css/styles.css */

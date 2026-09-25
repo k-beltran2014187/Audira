@@ -33,6 +33,7 @@ $more  = audira_more_products();
 <?php
 foreach ( $picks as $i => $p ) :
 	$cls = 'aud-pick' . ( $p['featured'] ? ' aud-pick--featured' : '' );
+	$cls .= preg_match( '#^https?://#', $p['image'] ) ? ' aud-pick--photo' : '';
 	$btn = $p['featured'] ? 'aud-btn aud-btn--amazon aud-btn--lg' : 'aud-btn aud-btn--amazon';
 	?>
 <!-- wp:group {"tagName":"article","className":"<?php echo esc_attr( $cls ); ?>"} -->

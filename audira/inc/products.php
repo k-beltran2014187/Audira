@@ -203,9 +203,9 @@ function audira_admin_image_field( $name, $value, $fallback ) {
 		esc_url( $src ),
 		esc_attr( $name ),
 		esc_attr( $value ),
-		esc_attr__( 'Leave empty to use the built-in illustration', 'audira' ),
+		esc_attr__( 'https://m.media-amazon.com/images/I/… (empty = illustration)', 'audira' ),
 		esc_html__( 'Choose image', 'audira' ),
-		esc_html__( 'Optional. Upload a product photo to Media first (e.g. from Amazon SiteStripe → Image).', 'audira' )
+		esc_html__( 'Amazon photo: on the product page, right-click the main photo → "Copy image address" and paste it here (it must start with https://m.media-amazon.com/). The photo stays on Amazon’s servers, as Amazon requires — do not download it and upload it to Media.', 'audira' )
 	);
 }
 

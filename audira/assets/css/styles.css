@@ -1231,3 +1231,9 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 1024px) { .aud-more-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .aud-more-grid { grid-template-columns: 1fr; } }
+
+/* Real product photos (Amazon images on white): show the whole product */
+.aud-pick--photo .aud-pick__img { background: var(--aud-white); }
+.aud-pick--photo .aud-pick__img img { object-fit: contain; padding: 1.5rem; }
+.aud-pick--photo.aud-pick--featured .aud-pick__img img { padding: clamp(1.5rem, 4vw, 3rem); }
+.aud-pick--photo:hover .aud-pick__img img { transform: scale(1.03); }

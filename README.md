@@ -28,11 +28,11 @@ Sitio de afiliados de Amazon.com sobre audífonos para adultos mayores, en ingl�
 4. **Settings → Audira Affiliate**: pega tu Tracking ID de Amazon Associates (termina en `-20`) y guarda.
 5. **Settings → Permalinks** → *Post name* → *Save*.
 6. **Settings → Privacy** → crea y publica tu *Privacy Policy*.
-7. **Tus productos:** ya vienen cargados con nombres y descripciones (5 Top Picks + 6 productos extra). Para cambiarlos ve a **Settings → Audira Affiliate** → **Products**. Si guardaste productos antes, pulsa **Restore the theme’s recommended products**:
-   - **Editor's top picks (5):** para cada uno revisa el *Amazon link*, escribe el **nombre real del producto**, sus ventajas (una por línea) y tu puntuación. Si quieres, pon una foto con *Choose image*.
-   - **Hearing aid styles (4):** un enlace por estilo (BTE, RIC, ITE, invisible).
-   - **More products we recommend:** una línea por producto con el formato `Nombre del producto | enlace`. Las líneas que solo tienen el enlace se guardan pero **no se muestran** hasta que les pongas el nombre.
-   - Pulsa **Guardar cambios** y los cambios salen en la portada al instante.
+7. **Tus productos:** están en el menú **Products** (barra lateral izquierda de WordPress). Al actualizar el tema se importan solos tus 11 productos.
+   - **Products → Add New Product:** título, descripción (editor), *Amazon link*, **varias imágenes** (una fila por imagen, marca la **Main**), badge, puntuación, ventajas, estilo, tipo de pérdida auditiva, características y rango de precio.
+   - **Top pick on home page:** elige #1–#5 para que salga en el ranking de la portada (#1 = destacado). El resto aparece en *More products we recommend*.
+   - Imágenes: en Amazon, clic derecho sobre cada foto → **Copiar dirección de imagen** → pégala en una fila. Las fotos se muestran desde Amazon (no las subas a Medios).
+   - Catálogo público: **/products/** (con filtros y el *Hearing Aid Finder*). Cada producto tiene su página con galería.
 8. **Site title:** Settings → General → *Site Title* (el logo y el pie usan este nombre).
 9. Activa SSL en hPanel (*Seguridad → SSL*) si aún no está activo.
 

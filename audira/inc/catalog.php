@@ -20,6 +20,14 @@ defined( 'ABSPATH' ) || exit;
  * Editor's picks (the main money section).
  */
 function audira_catalog_picks() {
+	$top = function_exists( 'audira_top_products' ) ? audira_top_products() : array();
+	return $top ? $top : audira_catalog_picks_legacy();
+}
+
+/**
+ * Picks as they were stored before the Products menu existed.
+ */
+function audira_catalog_picks_legacy() {
 	return audira_apply_saved_products( 'picks', audira_catalog_picks_defaults() );
 }
 
@@ -177,6 +185,174 @@ function audira_catalog_more_default() {
 			'https://amzn.to/4yc7e7V',
 			'https://amzn.to/4d1QMPd',
 		)
+	);
+}
+
+/**
+ * Products imported once into the Products menu (then edited in WordPress).
+ * 'legacy_pick' links an item to the old Settings pick so saved edits carry over.
+ */
+function audira_catalog_seed_products() {
+	return array(
+		array(
+			'legacy_pick' => 0,
+			'rank'        => 1,
+			'title'       => 'ELEHEAR Beyond Pro OTC Hearing Aids',
+			'url'         => 'https://amzn.to/4rGlJ1p',
+			'badge'       => 'Best overall',
+			'score'       => '9.5',
+			'best_for'    => 'Most people with mild to moderate hearing loss',
+			'bullets'     => array( 'VocClear 2.0 processing for noticeably clearer speech', 'About 20 hours per charge — a 15-minute top-up adds hours more', 'Bluetooth 5.3 streaming and real-time translation in the app' ),
+			'description' => 'A lightweight receiver-in-canal hearing aid built around clear speech. The companion app lets you fine-tune sound, switch scene modes and stream calls, TV and music over Bluetooth. A quick 15-minute charge covers an afternoon out, and the pocket case holds several extra charges — a well-rounded pick for most adults with mild to moderate hearing loss.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'noise' ),
+			'tier'        => 'mid',
+			'fallback'    => 'pick-rechargeable.svg',
+		),
+		array(
+			'legacy_pick' => 1,
+			'rank'        => 2,
+			'title'       => 'Jabra Enhance Select 700',
+			'url'         => 'https://amzn.to/4j84hAT',
+			'badge'       => 'Best premium',
+			'score'       => '9.3',
+			'best_for'    => 'Clinic-level care without visiting a clinic',
+			'bullets'     => array( 'Licensed audiology support included', 'Bluetooth LE Audio streaming for iPhone and Android', 'Nearly invisible receiver-in-canal design' ),
+			'description' => 'A premium OTC hearing aid from one of the best-known names in hearing. What sets it apart is the included remote support from licensed hearing professionals, who can help adjust your settings after you buy. Modern Bluetooth LE Audio streaming and a discreet receiver-in-canal design make it a strong choice if you want guidance, not just a device.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'audiology', 'discreet', 'noise' ),
+			'tier'        => 'premium',
+			'fallback'    => 'pick-ric-silver.svg',
+		),
+		array(
+			'legacy_pick' => 2,
+			'rank'        => 3,
+			'title'       => 'ELEHEAR Beyond OTC Hearing Aids',
+			'url'         => 'https://amzn.to/3ToY1tW',
+			'badge'       => 'Best value',
+			'score'       => '9.0',
+			'best_for'    => 'Great sound on a tighter budget',
+			'bullets'     => array( 'AI speech enhancement plus tinnitus masking', 'Up to 20 hours per charge, about 100 with the case', 'Turns on and off automatically in the case' ),
+			'description' => 'The original ELEHEAR Beyond delivers many of the Pro’s strengths for less. AI-assisted speech enhancement helps in conversation, tinnitus masking sounds can ease ringing, and the charging case stretches total battery life to roughly 100 hours. It switches on and off automatically when you lift it from or place it in the case — simple for everyday use.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'tinnitus', 'noise', 'long_battery' ),
+			'tier'        => 'budget',
+			'fallback'    => 'pick-ric-pair.svg',
+		),
+		array(
+			'legacy_pick' => 3,
+			'rank'        => 4,
+			'title'       => 'Yeasound RIC800 Hearing Aids',
+			'url'         => 'https://amzn.to/4heXm7z',
+			'badge'       => 'Longest battery',
+			'score'       => '8.9',
+			'best_for'    => 'Long days away from a charger',
+			'bullets'     => array( 'Up to 124 hours of total battery with the case', 'IPX8 water resistance', 'AI noise reduction with Bluetooth calls and music' ),
+			'description' => 'Built for people who don’t want to think about charging. With the case, total battery life reaches up to 124 hours, and an IPX8 rating means sweat and rain are less of a worry. AI noise reduction focuses on voices, and Bluetooth lets you take calls and listen to music directly.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'noise', 'long_battery', 'waterproof' ),
+			'tier'        => 'budget',
+			'fallback'    => 'pick-ric-graphite.svg',
+		),
+		array(
+			'legacy_pick' => 4,
+			'rank'        => 5,
+			'title'       => 'Ceretone Core One Pro',
+			'url'         => 'https://amzn.to/4Azqn5c',
+			'badge'       => 'Most discreet',
+			'score'       => '8.8',
+			'best_for'    => 'Anyone who wants nothing visible',
+			'bullets'     => array( 'Tiny in-canal design that is nearly invisible', 'Wind-noise reduction and automatic on/off', 'Rechargeable with a pocket charging case' ),
+			'description' => 'A tiny in-canal hearing aid for people who want their hearing help to stay private. It sits inside the ear canal, reduces wind noise outdoors, and turns on automatically when removed from its charging case. Its small size means smaller controls, so it suits people comfortable handling little objects.',
+			'style'       => 'iic',
+			'features'    => array( 'rechargeable', 'discreet' ),
+			'tier'        => 'budget',
+			'fallback'    => 'pick-invisible.svg',
+		),
+		array(
+			'rank'        => 0,
+			'title'       => 'Sennheiser All-Day Clear Bluetooth Hearing Aids',
+			'url'         => 'https://amzn.to/4xKo8cG',
+			'badge'       => 'Trusted audio brand',
+			'score'       => '8.9',
+			'best_for'    => 'Streaming calls and music with a trusted brand',
+			'bullets'     => array( 'Self-fitting with the All-Day Clear app', 'Bluetooth calls, music and podcasts', 'FDA-cleared OTC hearing aid' ),
+			'description' => 'From the audio specialists at Sennheiser, All-Day Clear is a self-fitting OTC hearing aid you personalize through its app. It streams phone calls, music and podcasts over Bluetooth, making it a natural fit for people who spend a lot of time on the phone or listening to audio.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app' ),
+			'tier'        => 'premium',
+			'fallback'    => 'pick-ric-silver.svg',
+		),
+		array(
+			'rank'        => 0,
+			'title'       => 'Yeasound RIC700 Plus Hearing Aids',
+			'url'         => 'https://amzn.to/47jgds3',
+			'badge'       => 'Budget streaming',
+			'score'       => '8.5',
+			'best_for'    => 'Clear speech and app control on a budget',
+			'bullets'     => array( 'AI noise reduction for clearer speech', 'Bluetooth streaming with easy app control', 'IPX8 water resistance' ),
+			'description' => 'An affordable receiver-in-canal option with AI noise reduction, Bluetooth streaming and simple app control. Its IPX8 rating adds peace of mind for daily wear, making it a sensible entry point into modern OTC hearing aids.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'noise', 'waterproof' ),
+			'tier'        => 'budget',
+			'fallback'    => 'pick-ric-graphite.svg',
+		),
+		array(
+			'rank'        => 0,
+			'title'       => 'JVC OTC Hearing Aids for Seniors',
+			'url'         => 'https://amzn.to/4xMLoa7',
+			'badge'       => 'Easy self-fitting',
+			'score'       => '8.6',
+			'best_for'    => 'Seniors who want simple AI self-fitting',
+			'bullets'     => array( 'AI self-fitting through the app', 'About 84 hours of battery with the charging case', 'Bluetooth calls and music' ),
+			'description' => 'JVC’s OTC hearing aids focus on easy setup: the app guides you through an AI self-fitting so the sound matches your hearing. The charging case provides roughly 84 hours of total battery, and Bluetooth handles calls and music.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'long_battery' ),
+			'tier'        => 'mid',
+			'fallback'    => 'type-ric.svg',
+		),
+		array(
+			'rank'        => 0,
+			'title'       => 'BlaidsX Neuro Rechargeable RIC Hearing Aids',
+			'url'         => 'https://amzn.to/4yfIQ5n',
+			'badge'       => 'In-app hearing test',
+			'score'       => '8.4',
+			'best_for'    => 'Tuning sound with an in-app hearing test',
+			'bullets'     => array( 'Hearing test and audiogram in the app', 'Dual microphones with noise cancellation', 'Programmable, rechargeable RIC design' ),
+			'description' => 'BlaidsX Neuro lets you take a hearing test in its mobile app and program the hearing aids from the result. Dual microphones and noise cancellation help in conversation, and the rechargeable receiver-in-canal design keeps them comfortable for daily wear.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'noise' ),
+			'tier'        => 'mid',
+			'fallback'    => 'type-ric.svg',
+		),
+		array(
+			'rank'        => 0,
+			'title'       => 'METIKO Elclear 64-Channel Hearing Aids',
+			'url'         => 'https://amzn.to/4yhwRV6',
+			'badge'       => 'Ultralight',
+			'score'       => '8.3',
+			'best_for'    => 'A light, discreet fit with app control',
+			'bullets'     => array( '64-channel sound processing', 'AI noise cancellation', 'Ultralight, low-profile design' ),
+			'description' => 'An ultralight rechargeable hearing aid with 64-channel processing and AI noise cancellation. Its low-profile design and Bluetooth app control make it a discreet everyday option at an accessible price.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'noise', 'discreet' ),
+			'tier'        => 'budget',
+			'fallback'    => 'pick-ric-silver.svg',
+		),
+		array(
+			'rank'        => 0,
+			'title'       => 'ELEHEAR Beyond — Champagne Gold',
+			'url'         => 'https://amzn.to/4yz7kqF',
+			'badge'       => 'Color option',
+			'score'       => '9.0',
+			'best_for'    => 'The ELEHEAR Beyond in a warm champagne finish',
+			'bullets'     => array( 'Same sound and features as ELEHEAR Beyond', 'Champagne gold finish that blends with many hair colors', 'About 100 hours of battery with the case' ),
+			'description' => 'The ELEHEAR Beyond in a champagne gold finish. You get the same AI speech enhancement, tinnitus masking and long battery life, in a color some people find blends in more naturally.',
+			'style'       => 'ric',
+			'features'    => array( 'rechargeable', 'bluetooth', 'app', 'tinnitus', 'noise', 'long_battery' ),
+			'tier'        => 'budget',
+			'fallback'    => 'pick-ric-pair.svg',
+		),
 	);
 }
 

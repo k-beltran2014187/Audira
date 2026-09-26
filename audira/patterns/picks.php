@@ -53,7 +53,7 @@ foreach ( $picks as $i => $p ) :
 <!-- /wp:group -->
 
 <!-- wp:heading {"level":3,"className":"aud-pick__title"} -->
-<h3 class="wp-block-heading aud-pick__title"><?php echo esc_html( $p['title'] ); ?></h3>
+<h3 class="wp-block-heading aud-pick__title"><?php if ( ! empty( $p['permalink'] ) ) : ?><a href="<?php echo esc_url( $p['permalink'] ); ?>"><?php echo esc_html( $p['title'] ); ?></a><?php else : ?><?php echo esc_html( $p['title'] ); ?><?php endif; ?></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"aud-pick__for"} -->
@@ -73,7 +73,7 @@ foreach ( $picks as $i => $p ) :
 <!-- /wp:buttons -->
 
 <!-- wp:paragraph {"className":"aud-pick__note"} -->
-<p class="aud-pick__note">Current price, reviews and delivery date on Amazon</p>
+<p class="aud-pick__note"><?php if ( ! empty( $p['permalink'] ) ) : ?><a href="<?php echo esc_url( $p['permalink'] ); ?>">Full details &amp; photos</a> · <?php endif; ?>Price &amp; reviews on Amazon</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></article>
 <!-- /wp:group -->
@@ -86,28 +86,18 @@ foreach ( $picks as $i => $p ) :
 <h3 class="wp-block-heading alignwide aud-more__title">More products we recommend</h3>
 <!-- /wp:heading -->
 
-<!-- wp:group {"align":"wide","className":"aud-more-grid"} -->
-<div class="wp-block-group alignwide aud-more-grid">
-<?php foreach ( $more as $m ) : ?>
-<!-- wp:group {"className":"aud-more"} -->
-<div class="wp-block-group aud-more"><!-- wp:paragraph {"className":"aud-more__name"} -->
-<p class="aud-more__name"><?php echo esc_html( $m['title'] ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"aud-btn aud-btn--outline aud-btn--sm"} -->
-<div class="wp-block-button aud-btn aud-btn--outline aud-btn--sm"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( $m['url'] ); ?>" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group -->
-<?php endforeach; ?>
-</div>
-<!-- /wp:group -->
+<!-- wp:html -->
+<div class="alignwide aud-more-cards"><?php foreach ( $more as $m ) { echo audira_product_card( $m, 'h4' ); } // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+<!-- /wp:html -->
 <?php endif; ?>
 
 <!-- wp:buttons {"className":"aud-center-actions"} -->
-<div class="wp-block-buttons aud-center-actions"><!-- wp:button {"className":"aud-btn aud-btn--ghost"} -->
-<div class="wp-block-button aud-btn aud-btn--ghost"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( audira_amazon_search_url() ); ?>" target="_blank" rel="sponsored nofollow noopener">Browse all OTC hearing aids on Amazon</a></div>
+<div class="wp-block-buttons aud-center-actions"><!-- wp:button {"className":"aud-btn aud-btn--primary"} -->
+<div class="wp-block-button aud-btn aud-btn--primary"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( audira_catalog_url() ); ?>#finder">Find my ideal hearing aid</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"aud-btn aud-btn--ghost"} -->
+<div class="wp-block-button aud-btn aud-btn--ghost"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( audira_catalog_url() ); ?>">See the full catalog</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>
 <!-- /wp:group -->

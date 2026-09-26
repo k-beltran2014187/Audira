@@ -87,6 +87,13 @@ function audira_product_image( array $p ) {
  * Lines without a name are kept in the settings but not shown on the site.
  */
 function audira_more_products() {
+	if ( function_exists( 'audira_all_products' ) && audira_all_products() ) {
+		return audira_other_products();
+	}
+	return audira_more_products_legacy();
+}
+
+function audira_more_products_legacy() {
 	$saved = audira_saved_products();
 	$text  = isset( $saved['more'] ) ? $saved['more'] : audira_catalog_more_default();
 
@@ -225,6 +232,13 @@ function audira_products_settings_section() {
 	<?php endif; ?>
 	<p><?php esc_html_e( 'Paste the Amazon link of each product (a full amazon.com link or a SiteStripe short link like https://amzn.to/…) and type the product name as it should appear on your site. Changes show on the home page as soon as you save.', 'audira' ); ?></p>
 
+	<?php if ( function_exists( 'audira_all_products' ) && audira_all_products() ) : ?>
+		<div class="aud-admin-card">
+			<h3><?php esc_html_e( 'Your products now live in the Products menu', 'audira' ); ?></h3>
+			<p><?php esc_html_e( 'Add, edit and reorder products — with several images, a main image, description and Finder attributes — from the Products menu in the left sidebar. Mark up to five as "Top pick" to show them in the home page ranking.', 'audira' ); ?></p>
+			<p><a class="button button-primary" href="<?php echo esc_url( admin_url( 'edit.php?post_type=' . AUDIRA_PRODUCT ) ); ?>"><?php esc_html_e( 'Manage products', 'audira' ); ?></a> <a class="button" href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . AUDIRA_PRODUCT ) ); ?>"><?php esc_html_e( 'Add New Product', 'audira' ); ?></a> <a class="button" href="<?php echo esc_url( audira_catalog_url() ); ?>" target="_blank"><?php esc_html_e( 'View catalog', 'audira' ); ?></a></p>
+		</div>
+	<?php else : ?>
 	<h3><?php esc_html_e( 'Editor’s top picks', 'audira' ); ?></h3>
 	<?php foreach ( $picks as $i => $p ) : $n = 'audira_products[picks][' . $i . ']'; ?>
 		<div class="aud-admin-card">
@@ -241,6 +255,8 @@ function audira_products_settings_section() {
 		</div>
 	<?php endforeach; ?>
 
+	<?php endif; ?>
+
 	<h3><?php esc_html_e( 'Hearing aid styles (one product per style)', 'audira' ); ?></h3>
 	<div class="aud-admin-card">
 		<table class="form-table" role="presentation">
@@ -251,11 +267,13 @@ function audira_products_settings_section() {
 		<p class="description"><?php esc_html_e( 'With a full amazon.com/dp/… link the card shows "Add 1 / 2 / 3 to cart" buttons. With a short amzn.to link it shows one "See it on Amazon" button.', 'audira' ); ?></p>
 	</div>
 
+	<?php if ( ! function_exists( 'audira_all_products' ) || ! audira_all_products() ) : ?>
 	<h3><?php esc_html_e( 'More products we recommend', 'audira' ); ?></h3>
 	<div class="aud-admin-card">
 		<p><?php echo wp_kses_post( __( 'One product per line, written as <code>Product name | Amazon link</code>. Lines that have only a link (no name) are saved but <strong>not shown</strong> until you add the name.', 'audira' ) ); ?></p>
 		<textarea class="large-text code" rows="9" name="audira_products[more]"><?php echo esc_textarea( $more ); ?></textarea>
 	</div>
+	<?php endif; ?>
 	<?php
 }
 

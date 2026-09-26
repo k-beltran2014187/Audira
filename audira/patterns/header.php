@@ -25,8 +25,8 @@ $home = esc_url( home_url( '/' ) );
 
 <!-- wp:navigation {"overlayMenu":"mobile","className":"aud-nav","layout":{"type":"flex","justifyContent":"right"}} -->
 <!-- wp:navigation-link {"label":"Top Picks","url":"<?php echo $home; ?>#picks","kind":"custom","isTopLevelLink":true} /-->
-<!-- wp:navigation-link {"label":"Hearing Aid Styles","url":"<?php echo $home; ?>#styles","kind":"custom","isTopLevelLink":true} /-->
-<!-- wp:navigation-link {"label":"Compare","url":"<?php echo $home; ?>#compare","kind":"custom","isTopLevelLink":true} /-->
+<!-- wp:navigation-link {"label":"Catalog","url":"<?php echo esc_url( audira_catalog_url() ); ?>","kind":"custom","isTopLevelLink":true} /-->
+<!-- wp:navigation-link {"label":"Hearing Aid Finder","url":"<?php echo esc_url( audira_catalog_url() ); ?>#finder","kind":"custom","isTopLevelLink":true} /-->
 <!-- wp:navigation-link {"label":"OTC Guide","url":"<?php echo $home; ?>#otc","kind":"custom","isTopLevelLink":true} /-->
 <!-- wp:navigation-link {"label":"FAQ","url":"<?php echo $home; ?>#faq","kind":"custom","isTopLevelLink":true} /-->
 <!-- /wp:navigation -->

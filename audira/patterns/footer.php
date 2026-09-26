@@ -35,6 +35,14 @@ $name = get_bloginfo( 'name' ) ?: 'Audira';
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
+<li><a href="<?php echo esc_url( audira_catalog_url() ); ?>">Product catalog</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="<?php echo esc_url( audira_catalog_url() ); ?>#finder">Hearing Aid Finder</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
 <li><a href="<?php echo $home; ?>#styles">Hearing aid styles</a></li>
 <!-- /wp:list-item -->
 

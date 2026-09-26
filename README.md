@@ -38,6 +38,18 @@ Sitio de afiliados de Amazon.com sobre audífonos para adultos mayores, en ingl�
 
 > Amazon Associates exige 3 ventas en los primeros 180 días. Mientras tanto, añade entradas (guías) desde **Posts → Add New**; aparecen en el blog con el mismo diseño.
 
+## Asistente de IA (Google Gemini, gratis)
+
+Un chat flotante que responde dudas de tus visitantes usando tu catálogo (productos, puntuaciones, estilos y FAQ).
+
+1. Entra a **https://aistudio.google.com/apikey** con tu cuenta de Google → **Create API key** → copia la clave (empieza por `AIza…`). No necesitas tarjeta ni pagar el plan de AI Studio.
+2. En WordPress: **Settings → Audira Affiliate → AI assistant (Google Gemini)** → marca **Enable**, pega la clave, deja el modelo `gemini-2.5-flash-lite` → **Guardar cambios**.
+3. Abre tu web y pulsa **Ask our assistant** (abajo a la derecha).
+
+Seguridad: la clave se guarda solo en tu servidor, nunca en la página. El chat solo acepta peticiones desde tu propio dominio, limita a 20 mensajes cada 10 minutos por visitante y tiene un tope diario configurable (800 por defecto) para no pasar del plan gratuito.
+
+Privacidad: en el plan gratuito Google puede usar los mensajes para mejorar sus productos. El chat avisa a los visitantes que no compartan datos de salud personales; menciónalo también en tu Privacy Policy.
+
 ## Editar el diseño
 
 - Textos de la portada: **Pages → Home** en el editor de bloques (cada sección es un patrón editable), o directamente en `audira/patterns/*.php`.

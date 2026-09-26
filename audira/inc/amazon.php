@@ -208,6 +208,7 @@ function audira_settings_page() {
 					</td>
 				</tr>
 			</table>
+			<?php audira_assistant_settings_section(); ?>
 			<?php audira_products_settings_section(); ?>
 			<?php submit_button(); ?>
 		</form>

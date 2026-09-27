@@ -88,6 +88,16 @@ function audira_register_product_cpt() {
 add_action( 'init', 'audira_register_product_cpt' );
 
 /**
+ * Products use the classic editor, so "Product details" (images, link,
+ * score…) sit right under the description instead of a collapsed
+ * "Meta boxes" drawer at the bottom of the block editor.
+ */
+function audira_product_classic_editor( $use, $post_type ) {
+	return AUDIRA_PRODUCT === $post_type ? false : $use;
+}
+add_filter( 'use_block_editor_for_post_type', 'audira_product_classic_editor', 10, 2 );
+
+/**
  * Flush permalinks once when the product URLs are introduced.
  */
 function audira_maybe_flush_rewrites() {

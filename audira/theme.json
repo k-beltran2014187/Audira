@@ -16,7 +16,7 @@
 				{
 					"slug": "base",
 					"name": "Ivory",
-					"color": "#FBF8F3"
+					"color": "#FBF8F2"
 				},
 				{
 					"slug": "white",
@@ -26,52 +26,57 @@
 				{
 					"slug": "surface",
 					"name": "Sand",
-					"color": "#F4EEE5"
+					"color": "#F3EDE1"
 				},
 				{
 					"slug": "mint",
 					"name": "Sage mist",
-					"color": "#DCEBE4"
+					"color": "#E3EBE2"
 				},
 				{
 					"slug": "line",
 					"name": "Hairline",
-					"color": "#E7DFD3"
+					"color": "#E4DCCC"
 				},
 				{
 					"slug": "ink",
 					"name": "Ink",
-					"color": "#0E1E25"
+					"color": "#17211C"
 				},
 				{
 					"slug": "ink-soft",
 					"name": "Ink soft",
-					"color": "#4A5A61"
+					"color": "#54605A"
 				},
 				{
 					"slug": "primary",
-					"name": "Deep teal",
-					"color": "#0F5B5C"
+					"name": "Deep pine",
+					"color": "#1B4332"
 				},
 				{
 					"slug": "primary-dark",
-					"name": "Deep teal dark",
-					"color": "#0A4142"
+					"name": "Deep pine dark",
+					"color": "#102A20"
 				},
 				{
 					"slug": "accent",
-					"name": "Amber (buy)",
-					"color": "#F2A93B"
+					"name": "Brass (buy)",
+					"color": "#B8863C"
+				},
+				{
+					"slug": "accent-dark",
+					"name": "Brass dark",
+					"color": "#96692A"
 				},
 				{
 					"slug": "gold",
-					"name": "Brass",
-					"color": "#B7863F"
+					"name": "Brass tint",
+					"color": "#EFDFC0"
 				},
 				{
 					"slug": "night",
 					"name": "Night",
-					"color": "#0B181D"
+					"color": "#101A15"
 				}
 			]
 		},
@@ -81,16 +86,25 @@
 			"fontFamilies": [
 				{
 					"slug": "sans",
-					"name": "Inter",
-					"fontFamily": "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif",
+					"name": "Source Sans 3",
+					"fontFamily": "\"Source Sans 3\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif",
 					"fontFace": [
 						{
-							"fontFamily": "Inter",
+							"fontFamily": "Source Sans 3",
 							"fontStyle": "normal",
-							"fontWeight": "100 900",
+							"fontWeight": "200 900",
 							"fontDisplay": "swap",
 							"src": [
-								"file:./assets/fonts/inter-var.woff2"
+								"file:./assets/fonts/source-sans-3-var.woff2"
+							]
+						},
+						{
+							"fontFamily": "Source Sans 3",
+							"fontStyle": "italic",
+							"fontWeight": "200 900",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/source-sans-3-var-italic.woff2"
 							]
 						}
 					]

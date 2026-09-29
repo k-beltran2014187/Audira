@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AUDIRA_VERSION', '3.0.1' );
+define( 'AUDIRA_VERSION', '4.0.0' );
 
 require_once get_theme_file_path( 'inc/amazon.php' );
 require_once get_theme_file_path( 'inc/catalog.php' );

@@ -210,8 +210,8 @@
 				'<ul class="aud-checklist">' + why.map( function ( w ) {
 					return '<li>' + esc( w ) + '</li>';
 				} ).join( '' ) + '</ul>' +
-				'<div class="aud-card__actions"><a class="aud-cta aud-cta--ghost" href="' + esc( r.p.link ) + '">View details</a>' +
-				'<a class="aud-cta" href="' + esc( r.p.buy ) + '" target="_blank" rel="sponsored nofollow noopener">Check price</a></div></div></article>';
+				'<div class="aud-card__actions"><a class="aud-clink aud-clink--ghost" href="' + esc( r.p.link ) + '">View details</a>' +
+				'<a class="aud-clink" href="' + esc( r.p.buy ) + '" target="_blank" rel="sponsored nofollow noopener">Check price</a></div></div></article>';
 		} );
 		html += '</div><p class="aud-finder__fine">Suggestions are general guidance based on your answers, not a medical recommendation. <button type="button" class="aud-linkbtn" data-restart>Start over</button></p>';
 

@@ -1,11 +1,15 @@
 /**
  * Audira — small progressive enhancements. The page works without it.
+ *
+ * Motion philosophy: one orchestrated entrance for the hero, one quiet
+ * reveal per section (not per card), and a handful of interactive
+ * micro-transitions. Nothing repeats the same fade-up on every element.
  */
 ( function () {
 	'use strict';
 
-	var header = document.querySelector( '.aud-header' );
 	var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+	var header = document.querySelector( '.aud-header' );
 
 	// Header gets a solid background and shadow once the page scrolls.
 	if ( header ) {
@@ -37,22 +41,57 @@
 		} );
 	} );
 
-	// Gentle reveal on scroll.
-	if ( reduceMotion || ! ( 'IntersectionObserver' in window ) ) {
+	if ( reduceMotion ) {
 		return;
 	}
 
-	var selectors = [
-		'.aud-section-head',
-		'.aud-trust__item',
-		'.aud-pick',
-		'.aud-style',
+	/**
+	 * One orchestrated hero entrance, played once on load. Each part is
+	 * timed off the previous one rather than sharing a single duration.
+	 */
+	var hero = document.querySelector( '.aud-hero' );
+	if ( hero ) {
+		var sequence = [
+			[ '.aud-eyebrow--dot', 0 ],
+			[ '.aud-hero__title', 90 ],
+			[ '.aud-hero__lead', 260 ],
+			[ '.aud-hero__actions', 380 ],
+			[ '.aud-hero__points', 460 ],
+			[ '.aud-hero__media', 160 ],
+			[ '.aud-float--top', 620 ],
+			[ '.aud-float--bottom', 720 ],
+		];
+		sequence.forEach( function ( pair ) {
+			var el = hero.querySelector( pair[ 0 ] );
+			if ( el ) {
+				el.classList.add( 'aud-hero-in' );
+				el.style.setProperty( '--aud-hero-delay', pair[ 1 ] + 'ms' );
+			}
+		} );
+		window.requestAnimationFrame( function () {
+			window.requestAnimationFrame( function () {
+				hero.classList.add( 'is-playing' );
+			} );
+		} );
+	}
+
+	// Quiet reveal, once per section — grid children stagger via CSS, not JS.
+	if ( ! ( 'IntersectionObserver' in window ) ) {
+		return;
+	}
+
+	var sectionSelectors = [
+		'.aud-trust__grid',
+		'.aud-pick-grid',
+		'.aud-more-cards',
+		'.aud-style-grid',
 		'.aud-compare',
-		'.aud-otc-card',
-		'.aud-criterion',
-		'.aud-scorecard',
-		'.aud-step',
-		'.aud-faq-item',
+		'.aud-otc-grid',
+		'.aud-otc__warning',
+		'.aud-method__grid',
+		'.aud-steps',
+		'.aud-faq__grid',
+		'.aud-quotes',
 		'.aud-cta__panel',
 	];
 
@@ -65,13 +104,10 @@
 				}
 			} );
 		},
-		{ rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+		{ rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
 	);
 
-	document.querySelectorAll( selectors.join( ',' ) ).forEach( function ( el ) {
-		// Stagger siblings inside the same grid.
-		var index = Array.prototype.indexOf.call( el.parentNode.children, el );
-		el.style.setProperty( '--aud-delay', Math.min( index, 5 ) * 0.07 + 's' );
+	document.querySelectorAll( sectionSelectors.join( ',' ) ).forEach( function ( el ) {
 		el.classList.add( 'aud-reveal' );
 		observer.observe( el );
 	} );

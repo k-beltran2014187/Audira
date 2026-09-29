@@ -50,6 +50,16 @@ Seguridad: la clave se guarda solo en tu servidor, nunca en la página. El chat 
 
 Privacidad: en el plan gratuito Google puede usar los mensajes para mejorar sus productos. El chat avisa a los visitantes que no compartan datos de salud personales; menciónalo también en tu Privacy Policy.
 
+## Rediseño v4.0 — Sistema editorial premium
+
+La v4.0 reconstruye la identidad visual completa siguiendo el brief "$10K checklist": punto de vista propio, tipografía que trabaja, paleta restringida, jerarquía marcada, movimiento sutil y accesibilidad de verdad.
+
+- **Tipografía:** Fraunces (titulares, ya la tenías) + **Source Sans 3** en vez de Inter — más cálida y legible para adultos mayores.
+- **Paleta:** ivory cálido, **verde pino profundo** (`#1B4332`) como color de autoridad y **latón envejecido** (`#B8863C`) para comprar, en vez del teal/ámbar genérico anterior. Logo actualizado a juego.
+- **Movimiento:** una sola entrada orquestada en el hero al cargar la página (no una animación genérica por tarjeta), y un revelado sutil por sección al hacer scroll — respeta `prefers-reduced-motion`.
+- **Contraste:** todas las combinaciones de texto verificadas en 4.5:1 o más (WCAG AA), pensado para lectores mayores.
+- Corregido un choque de clases CSS (`.aud-cta`) que rompía visualmente la sección de llamado final; los botones del catálogo ahora usan `.aud-clink`.
+
 ## Editar el diseño
 
 - Textos de la portada: **Pages → Home** en el editor de bloques (cada sección es un patrón editable), o directamente en `audira/patterns/*.php`.

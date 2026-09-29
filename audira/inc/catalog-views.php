@@ -51,8 +51,8 @@ function audira_product_card( array $p, $heading = 'h3' ) {
 			<?php if ( ! empty( $p['best_for'] ) ) : ?><p class="aud-card__for"><?php echo esc_html( $p['best_for'] ); ?></p><?php endif; ?>
 			<?php if ( $chips ) : ?><ul class="aud-chips"><?php foreach ( $chips as $label ) : ?><li><?php echo esc_html( $label ); ?></li><?php endforeach; ?></ul><?php endif; ?>
 			<div class="aud-card__actions">
-				<?php if ( ! empty( $p['permalink'] ) ) : ?><a class="aud-cta aud-cta--ghost" href="<?php echo esc_url( $p['permalink'] ); ?>">View details</a><?php endif; ?>
-				<a class="aud-cta" href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener">Check price</a>
+				<?php if ( ! empty( $p['permalink'] ) ) : ?><a class="aud-clink aud-clink--ghost" href="<?php echo esc_url( $p['permalink'] ); ?>">View details</a><?php endif; ?>
+				<a class="aud-clink" href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener">Check price</a>
 			</div>
 		</div>
 	</article>
@@ -91,7 +91,7 @@ function audira_catalog_shortcode() {
 			<p class="aud-eyebrow">Catalog · <?php echo esc_html( count( $products ) ); ?> hearing aids</p>
 			<h1 class="aud-catalog-hero__title">Find the hearing aid that fits <em>your</em> life</h1>
 			<p class="aud-lead">Answer five quick questions and we’ll match you with the options that suit your hearing, habits and budget — or browse the full catalog below.</p>
-			<p class="aud-catalog-hero__actions"><a class="aud-cta aud-cta--lg" href="#finder">Start the Hearing Aid Finder</a> <a class="aud-cta aud-cta--ghost aud-cta--lg" href="#catalog">Browse all</a></p>
+			<p class="aud-catalog-hero__actions"><a class="aud-clink aud-clink--lg" href="#finder">Start the Hearing Aid Finder</a> <a class="aud-clink aud-clink--ghost aud-clink--lg" href="#catalog">Browse all</a></p>
 		</div>
 	</section>
 
@@ -152,7 +152,7 @@ function audira_catalog_shortcode() {
 							<label><input type="radio" name="budget" value="any"> No limit</label>
 						</div>
 					</fieldset>
-					<button type="submit" class="aud-cta aud-cta--lg">Show my matches</button>
+					<button type="submit" class="aud-clink aud-clink--lg">Show my matches</button>
 				</form>
 				<div class="aud-finder__results" aria-live="polite" hidden></div>
 			</div>
@@ -244,7 +244,7 @@ function audira_product_shortcode() {
 					<ul class="aud-checklist"><?php foreach ( $p['bullets'] as $b ) : ?><li><?php echo esc_html( $b ); ?></li><?php endforeach; ?></ul>
 				<?php endif; ?>
 				<div class="aud-pdp__buy">
-					<a class="aud-cta aud-cta--lg" href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon</a>
+					<a class="aud-clink aud-clink--lg" href="<?php echo esc_url( audira_product_url( $p ) ); ?>" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon</a>
 					<p>Current price, reviews and delivery date on Amazon. Amazon handles payment, shipping and returns.</p>
 				</div>
 				<dl class="aud-specs">
@@ -267,7 +267,7 @@ function audira_product_shortcode() {
 
 		<?php if ( $related ) : ?>
 			<section class="aud-pdp__related">
-				<div class="aud-catalog__head"><h2 class="aud-catalog__title">You may also like</h2><a class="aud-cta aud-cta--ghost" href="<?php echo esc_url( audira_catalog_url() ); ?>">See the full catalog</a></div>
+				<div class="aud-catalog__head"><h2 class="aud-catalog__title">You may also like</h2><a class="aud-clink aud-clink--ghost" href="<?php echo esc_url( audira_catalog_url() ); ?>">See the full catalog</a></div>
 				<div class="aud-grid"><?php foreach ( $related as $r ) { echo audira_product_card( $r ); } // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 			</section>
 		<?php endif; ?>

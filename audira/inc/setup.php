@@ -55,7 +55,7 @@ add_action( 'wp_head', 'audira_js_class', 1 );
  * Preload the two fonts used above the fold.
  */
 function audira_preload_fonts() {
-	foreach ( array( 'fraunces-var.woff2', 'inter-var.woff2' ) as $font ) {
+	foreach ( array( 'fraunces-var.woff2', 'source-sans-3-var.woff2' ) as $font ) {
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
 			esc_url( get_theme_file_uri( 'assets/fonts/' . $font ) )
@@ -68,7 +68,7 @@ add_action( 'wp_head', 'audira_preload_fonts', 2 );
  * Favicon and theme color until a Site Icon is set in the Site Editor.
  */
 function audira_favicon() {
-	echo '<meta name="theme-color" content="#0E1E25">' . "\n";
+	echo '<meta name="theme-color" content="#17211C">' . "\n";
 	if ( has_site_icon() ) {
 		return;
 	}
